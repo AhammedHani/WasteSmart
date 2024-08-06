@@ -1,0 +1,31 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/schedule_post/#main">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr><br><br>
+        <input type="hidden" name="id" value="{{ id }}">
+      <th width="180px">DATE</th>
+      <td>
+      <input type="date" min="{{ dt }}"  name="textfield" id="textfield" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>TIME</th>
+      <td>
+      <input type="time" name="textfield2" id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>DRIVER</th>
+      <td>
+      <select name="driverid" class="form-control">
+          {% for i in data2 %}
+          <option value="{{ i.id }}">{{ i.name }}</option>
+          {%  endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="SEND" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

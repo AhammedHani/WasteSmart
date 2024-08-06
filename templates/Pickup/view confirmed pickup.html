@@ -1,0 +1,36 @@
+{% extends 'Pickup/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_confirmed_pickup_post/#main">
+{% csrf_token %}
+
+<table class="pull-left">
+    <tr><br><br>
+      <th>From</th>
+      <td>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+      <th>To</th>
+      <td>
+      <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+    </tr>
+  </table><br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>REQUEST DATE</th>
+      <th>USER</th>
+      <th>CATEGORY</th>
+      <th>SCHEDULE DATE</th>
+    </tr>
+  {% for i in data %}
+    <tr>
+      <td width="50px" >{{ forloop.counter }}</td>
+      <td>{{ i.SCHEDULE.REQUEST_SUB.REQUEST.date }}</td>
+      <td>{{ i.SCHEDULE.REQUEST_SUB.REQUEST.USER.name }}</td>
+      <td>{{ i.SCHEDULE.REQUEST_SUB.CATEGORY.name }}</td>
+      <td>{{ i.SCHEDULE.date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

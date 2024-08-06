@@ -1,0 +1,40 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_request_post/#main">
+{% csrf_token %}
+
+  <table class="pull-left">
+  <tr><br><br>
+    <th>From</th>
+    <td>
+      <input type="date" class="form-control" name="textfield2" id="textfield2" required/></td>
+    <th>To</th>
+    <td>
+    <input type="date" class="form-control" name="textfield" id="textfield" required/></td>
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+  </tr>
+</table><br>
+  <table class="table table-bordered">
+  <tr>
+    <th >SLNO</th>
+    <th>DATE</th>
+    <th >REQUEST</th>
+    <th >CATEGORY</th>
+    <th>STATUS</th>
+      <th>SCHEDULE DATE & TIME</th>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td width="50px">{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.Date}}</td>
+    <td>&nbsp;{{ i.Request }}</td>
+    <td>{{ i.Category}}</td>
+    <td> {{ i.Status }}
+</td>
+      <td> {{ i.Schedule }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

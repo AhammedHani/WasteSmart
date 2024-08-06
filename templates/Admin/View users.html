@@ -1,0 +1,37 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_users_post/#main">
+{% csrf_token %}
+ <table class="pull-left">
+    <tr><br><br>
+{#      <td>Search</td>#}
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" placeholder="Enter User Name" pattern="[a-z A-Z]+" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>NAME</th>
+      <th>ADDRESS</th>
+      <th>EMAIL</th>
+      <th>PHONE</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px" >{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.housename }}<br>
+          {{ i.place }}<br>
+          {{ i.pin }}<br>
+          {{ i.district }}<br>
+      </td>
+      <td> {{ i.email }}</td>
+      <td>{{ i.phone }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr align="center"><br><br>
+      <th colspan="2"><p>TOTAL COINS</p>
+      <p>1 COIN = 0.25 RS</p></th>
+    </tr>
+    <tr align="center">
+      <th colspan="2">{{ data.coin }}</th>
+      
+    </tr>
+    <tr align="center">
+      <th width="104">RS</th>
+      <th width="104">&nbsp;{{ amount }}</th>
+    </tr>
+    <tr>
+        {% if lm == 'OK' %}
+      <td align="center" colspan="2"><a href="/Myapp/bank_account/#main" class="btn btn-success">REDEEM</a> </td>
+      {% else %}
+      <td align="center" colspan="2">Not enough coins to redeem</td>
+
+        {% endif %}
+    </tr>
+  </table>
+</form>
+{% endblock %}

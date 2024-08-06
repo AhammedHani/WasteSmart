@@ -1,0 +1,27 @@
+{% extends 'Pickup/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr><br><br>
+      <th width="180px">NAME</th>
+      <td>&nbsp;{{ data.name }}</td>
+    </tr>
+    <tr>
+      <th>LISENCE NO</th>
+      <td>{{ data.lisenceno }}</td>
+    </tr>
+    <tr>
+      <th>PLACE</th>
+      <td>{{ data.place }}&nbsp;</td>
+    </tr>
+    <tr>
+      <th>PHONE</th>
+      <td>{{ data.phone }}</td>
+    </tr>
+    <tr>
+      <th>EMAIL</th>
+      <td>{{ data.email }}</td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/Myapp/signup_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table width="200" border="1">
+    <tr>
+      <td>Name</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" />       <label for="textfield2"></label></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7" /></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" /></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" id="textfield9" /></td>
+    </tr>
+    <tr>
+      <td>Confirm password</td>
+      <td><label for="textfield10"></label>
+      <input type="text" name="textfield10" id="textfield10" /></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Register" /></td>
+    
+    </tr>
+  </table>
+</form>
+</body>
+</html>

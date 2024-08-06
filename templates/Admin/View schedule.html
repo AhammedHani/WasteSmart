@@ -1,0 +1,38 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_schedule_post/">
+{% csrf_token %}
+
+  <table class="pull-left">
+    <tr><br><br>
+      <th>From</th>
+      <td>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+      <th>To</th>
+      <td>
+      <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>REQUEST DATE</th>
+      <th>USER</th>
+      <th>SCHEDULE DATE</th>
+        <th>STATUS</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px" >{{ forloop.counter }}</td>
+      <td>{{ i.REQUEST_SUB.REQUEST.date }}</td>
+      <td>{{ i.REQUEST_SUB.REQUEST.USER.name }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.REQUEST_SUB.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

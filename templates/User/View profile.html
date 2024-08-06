@@ -1,0 +1,41 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+  <table class="table table-bordered">
+<br><br>
+    <tr>
+
+        <td colspan="2"><b>{{ data.name }}</b><br>
+          <image src="{{ data.photo }}" height="100px" width="100px"></image>
+
+      </td>
+    </tr>
+    <tr>
+      <th width="180px">HOUSE NAME</th>
+      <td>{{ data.housename }}&nbsp;</td>
+    </tr>
+    <tr>
+      <th>PLACE</th>
+      <td>{{ data.place }}&nbsp;</td>
+    </tr>
+    <tr>
+      <th>PIN</th>
+      <td>{{ data.pin }}</td>
+    </tr>
+    <tr>
+      <th>DISTRICT</th>
+      <td>{{ data.district }}</td>
+    </tr>
+    <tr>
+      <th>EMAIL</th>
+      <td>{{ data.email }}</td>
+    </tr>
+    <tr>
+      <th>PHONE</th>
+      <td>{{ data.phone }}</td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><a href="/Myapp/edit_manage_profile/#main"class="btn btn-warning">EDIT</a> </td>
+      
+    </tr>
+  </table>
+{% endblock %}

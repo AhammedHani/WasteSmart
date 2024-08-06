@@ -1,0 +1,39 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_pickup_post/#main">
+{% csrf_token %}
+<table class="pull-left">
+    <tr><br><br>
+{#      <td>Search</td>#}
+      <td>
+      <input type="text" name="textfield" id="textfield" placeholder="Pickup Name" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info" /></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>NAME</th>
+      <th>LICENSE NO</th>
+      <th>PLACE</th>
+      <th>PHONE</th>
+      <th>EMAIL</th>
+        <th colspan="2"></th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px" >{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.name }}&nbsp;</td>
+      <td>{{ i.lisenceno }}&nbsp;</td>
+      <td>{{ i.place }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.email }}</td>
+      <td width="50px" ><a href="/Myapp/edit_pickup/{{ i.id }}#main" class="btn btn-warning">EDIT</a></td>
+      <td width="50px" ><a href="/Myapp/delete_pickup/{{ i.id }}" onclick="return confirm('DO YOU WANT TO DELETE THIS')" class="btn btn-danger">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

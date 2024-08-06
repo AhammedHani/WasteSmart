@@ -1,0 +1,22 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/send_request_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr><br><br>
+      <th width="180px">REQUEST</th>
+      <td>
+          <textarea name="textfield" id="textfield" required class="form-control" ></textarea></td>
+    </tr>
+    <tr>
+      <th>CATEGORY</th>
+        <td>
+            {% for i in data %}
+              {{ i.name }}<input type="checkbox" name="CheckboxGroup1" value="{{ i.id }}"><br>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr><td align="center" colspan="3"><input name="" type="submit" value="SEND" class="btn btn-success" /></td></tr>
+  </table>
+</form>
+{% endblock %}

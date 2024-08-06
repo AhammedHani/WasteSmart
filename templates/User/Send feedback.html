@@ -1,0 +1,17 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/send_feedback_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr><br><br>
+      <th>FEEDBACK</th>
+      <td>
+      <textarea name="textarea" id="textarea" required class="form-control" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="SEND" class="btn btn-success"/></td>
+      
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_category_post/#main">
+{% csrf_token %}
+  <table class="pull-left">
+    <tr><br><br>
+{#      <td>Search</td>#}
+      <td>
+      <input type="text" name="textfield" id="textfield" placeholder="Enter Category Name"  class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info" /></td>
+    </tr>
+  </table>
+    <br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>CATEGORY NAME</th>
+      <th>COINS (PER KG)</th>
+        <th colspan="2"></th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px">{{ forloop.counter }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.coins }}</td>
+      <td width="50px"><a href="/Myapp/edit_category/{{ i.id }}#main "class="btn btn-warning">EDIT</a></td>
+      <td width="50px"><a href="/Myapp/delete_category/{{ i.id }}" onclick="return confirm('Are You Sure?')" class="btn btn-danger">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'Pickup/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/view_schedule_pickup_post/#main">
+{% csrf_token %}
+
+<table class="pull-left">
+    <tr><br><br>
+      <th>From</th>
+      <td>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+      <th>To</th>
+      <td>
+      <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+    </tr>
+  </table><br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>REQUEST DATE</th>
+      <th>USER</th>
+        <th>ADDRESS</th>
+        <th>PHONE</th>
+        <th>CATEGORY</th>
+      <th>SCHEDULE DATE</th>
+      
+      <td>&nbsp;</td>
+    </tr>
+  {% for i in data %}
+    <tr>
+      <td width="50px" >{{ forloop.counter }}</td>
+      <td>{{ i.rdate }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.housename }}<br>{{ i.place }}<br>{{ i.pin }}<br>{{ i.district }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.category }}</td>
+      <td>{{ i.date }}</td>
+        {% if i.status == "Not" %}
+      <td align="center"><a href="/Myapp/add_quantity/{{ i.id }}">Add quantity</a></td>
+    {% else %}
+    <td>{{ i.status }}</td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

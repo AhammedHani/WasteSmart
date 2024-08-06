@@ -1,0 +1,55 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/edit_manage_profile_post/"  enctype="multipart/form-data">
+    {% csrf_token %}
+  <table class="table table-bordered">
+  <tr><br><br>
+    <th width="180px">NAME</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.name }}" name="textfield" id="textfield" required pattern="[a-z A-Z]+" /></td>
+  </tr>
+  <tr>
+    <th>PHOTO</th>
+    <td>
+        <img src="{{ data.photo }}" height="50px" width=""50px>
+      <input type="file" class="form-control" name="fileField" id="fileField" class="form-control"/>
+    </td>
+  </tr>
+  <tr>
+    <th>HOUSE NAME</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.housename }}"name="textfield2" id="textfield2" required pattern="[a-z A-Z]+" class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>PLACE</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.place }}"name="textfield3" id="textfield3" required pattern="[a-z A-Z]+" class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>PIN</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.pin }}"name="textfield4" id="textfield4" required pattern="[0-9]{6}+" minlength="5" maxlength="6" class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>DISTRICT</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.district }}"name="textfield5" id="textfield5" required pattern="[a-z A-Z]+" class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>EMAIL</th>
+    <td>
+      <input type="email" class="form-control" value="{{ data.email }}"
+             readonly name="textfield6" id="textfield6" class="form-control"/></td>
+  </tr>
+  <tr>
+    <th>PHONE</th>
+    <td>
+      <input type="text" class="form-control" value="{{ data.phone }}"name="textfield7" id="textfield7" required pattern="[6789][0-9]+" minlength="10" maxlength="10" class="form-control"/></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/></td>
+   
+  </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'User/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/bank_account_post/#main">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr><br><br>
+      <th>ACCOUNT NUMBER</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" required pattern="[0-9]+" class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>IFSC CODE</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="TRANSFER" class="btn btn-success" /></td>
+     
+    </tr>
+  </table>
+
+</form>
+{% endblock %}

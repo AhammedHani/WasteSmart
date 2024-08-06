@@ -1,0 +1,21 @@
+{% extends 'Admin/homepage.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/Myapp/add_category_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr><br><br>
+      <th width="180px">CATEGORY NAME</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" required class="form-control" /></td>
+    </tr>
+      <tr>
+      <th>COINS (PER KG)</th>
+      <td>
+      <input type="number" min="1" name="textfield2" id="textfield2" required class="form-control" /></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="ADD" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
